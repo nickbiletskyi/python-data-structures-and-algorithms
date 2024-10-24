@@ -81,7 +81,7 @@ class DoublyLinkedLists:
         if index < 0 or index >= self.length:
             return None
 
-        if index < self.length/2:
+        if index < self.length / 2:
             temp = self.head
             for _ in range(index):
                 temp = temp.next
@@ -109,7 +109,7 @@ class DoublyLinkedLists:
             return self.append_node(value)
 
         new_node = Node(value)
-        before = self.get(index-1)
+        before = self.get(index - 1)
         after = before.next
         new_node.prev = before
         new_node.next = after
@@ -144,24 +144,6 @@ class DoublyLinkedLists:
             return True
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 my_d_list = DoublyLinkedLists(1)
 my_d_list.append_node(2)
 my_d_list.append_node(3)
@@ -175,7 +157,6 @@ my_d_list.set_value(2, 100)
 my_d_list.insert(1, 101)
 my_d_list = DoublyLinkedLists(1)
 # my_d_list.remove(0)
-
 
 
 if __name__ == '__main__':
