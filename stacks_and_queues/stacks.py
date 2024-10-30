@@ -56,6 +56,7 @@ if __name__ == '__main__':
     print('-------')
     print(my_stack.height, ' len')
     print('-------')
+    print(my_stack.top.value)
 
 
 
