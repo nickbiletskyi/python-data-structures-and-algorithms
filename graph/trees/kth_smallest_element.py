@@ -30,26 +30,28 @@ class BinarySearchTree:
                 temp = temp.right
 
     def kth_smallest(self, k):
-        self.kth_smallest_count = 0
-        return self.kth_smallest_helper(self.root, k)
+        current_value = [0]
+        k_counter = [k]
 
-    def kth_smallest_helper(self, node, k):
-        if node is None:
-            return None
 
-        left_result = self.kth_smallest_helper(node.left, k)
-        if left_result is not None:
-            return left_result
+        
+        def traverse_in_order(current_node):
+            if current_node.left:
+                traverse_in_order(current_node.left)
+            if k_counter[0] >= 0:
+                k_counter[0] -= 1
+            else:
+                return
+            if k_counter[0] == 0:
+                current_value[0] = current_node.value
+                return
+            if current_node.right:
+                traverse_in_order(current_node.right)
 
-        self.kth_smallest_count += 1
-        if self.kth_smallest_count == k:
-            return node.value
+        traverse_in_order(self.root)
 
-        right_result = self.kth_smallest_helper(node.right, k)
-        if right_result is not None:
-            return right_result
+        return current_value[0]
 
-        return None
 
 
 
@@ -69,7 +71,9 @@ bst.insert(4)
 bst.insert(6)
 bst.insert(8)
 
-# print(bst.kth_smallest(1))  # Expected output: 2
+
+print('asdasd ads asd asd as das dads ')
+print(bst.kth_smallest(1))  # Expected output: 2
 print(bst.kth_smallest(3))  # Expected output: 4
 print(bst.kth_smallest(6))  # Expected output: 7
 
